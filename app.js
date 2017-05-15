@@ -21,6 +21,12 @@ var vm = new Vue({
     		setInterval(function () {
     			that.time = time;
     			that.timeRemaining = timeRemaining;
+                if ( timeRemaining === '00:00' ){
+                    that.time = '00:00'
+                    that.timeRemaining = duration
+                    that.button = 'play'
+                    that.url = that.play
+                }
     		}, 1000);
     	}
     	if (this.button === 'play'){
