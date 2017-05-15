@@ -1,0 +1,55 @@
+
+.jp-audio {
+  width: 201px;}
+
+.jp-progress {
+  background: gray 0px -240px no-repeat;
+  width: 197px;
+  height: 13px;
+  padding: 0 2px 2px 2px;
+  margin-bottom: 4px;
+  overflow: hidden; }
+
+div.jp-video .jp-progress {
+  border-top: 1px solid #180a1f;
+  border-bottom: 1px solid #554560;
+  width: 100%;
+  background-image: none;
+  padding: 0; }
+
+.jp-seek-bar {
+  background: white 0px -260px repeat-x;
+  width: 0px;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer; }
+
+.jp-play-bar {
+  background: red 0px -280px repeat-x;
+  width: 0px;
+  height: 100%;
+  overflow: hidden; }
+.buttonIcon {
+  width: 50px;
+}
+
+/* @end */
+.progress-bar {
+  width: 120px;
+  height: 10px;
+}
+.count {
+  display: inline-block;
+}
+.count2 {
+  display: inline-block;
+}
+.barWrapper{
+  width:120px;
+  display: inline-block;
+  background-color: white;
+  height: 10px;
+}
+.button{
+  height: 15px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jPlayer</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link type="text/css" href="css/app.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+    <script>
+        var time = '00:00';
+        var duration = '';
+        var timeRemaining = '00:00';
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("#jquery_jplayer_1").jPlayer({
+        ready: function (event) {
+          $(this).jPlayer("setMedia", {
+            title: "Bubble",
+            m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+          });
+        },
+        timeupdate: function (event) {
+            var tmp_time = event.jPlayer.status.currentTime;
+            var tmp_duration = event.jPlayer.status.duration;
+            time = $.jPlayer.convertTime(tmp_time);
+            duration = $.jPlayer.convertTime(tmp_duration);
+            timeRemaining = $.jPlayer.convertTime(tmp_duration - tmp_time);
+                },
+        canplay: function (event){
+            var tmp_time = event.jPlayer.status.currentTime;
+            var tmp_duration = event.jPlayer.status.duration;
+            time = $.jPlayer.convertTime(tmp_time);
+            duration = $.jPlayer.convertTime(tmp_duration);
+            timeRemaining = $.jPlayer.convertTime(tmp_duration - tmp_time);
+        },
+        cssSelectorAncestor: "#jp_container_1",
+        swfPath: "/js",
+        supplied: "m4a, oga",
+        useStateClassSkin: true,
+        autoBlur: false,
+        smoothPlayBar: true,
+        keyEnabled: true,
+        remainingDuration: true,
+        toggleDuration: true
+      });
+    });
+  </script>
+</head>
+<body>
+<div id="app">
+    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+    <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+        <button @click="foo" class="jp-play" role="button" tabindex="0">
+        <img class='buttonIcon' v-bind:src="url">
+        </button>
+        <div class="jp-progress">
+            <div class="jp-seek-bar">
+                <div class="jp-play-bar"></div>
+            </div>
+        </div>
+        <p class='count'>{{time}}</p>
+        <p class='count'>{{timeRemaining}}</p> 
+
+    </div>
+</div>
+<script src='app.js'></script>
+</body>
+</html>
